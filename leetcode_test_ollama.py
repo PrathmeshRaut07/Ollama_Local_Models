@@ -1,38 +1,29 @@
 from ollama import generate
 text="""
-2466. Count Ways To Build Good Strings
-Medium
-Topics
-Companies
-Hint
-Given the integers zero, one, low, and high, we can construct a string by starting with an empty string, and then at each step perform either of the following:
+Complethe below class
+class Solution:
+    def flatten(self, root: Optional[TreeNode]) -> None:
+       
+        
+Given the root of a binary tree, flatten the tree into a "linked list":
 
-Append the character '0' zero times.
-Append the character '1' one times.
-This can be performed any number of times.
-
-A good string is a string constructed by the above process having a length between low and high (inclusive).
-
-Return the number of different good strings that can be constructed satisfying these properties. Since the answer can be large, return it modulo 109 + 7.
-
+The "linked list" should use the same TreeNode class where the right child pointer points to the next node in the list and the left child pointer is always null.
+The "linked list" should be in the same order as a pre-order traversal of the binary tree.
  
 
 Example 1:
 
-Input: low = 3, high = 3, zero = 1, one = 1
-Output: 8
-Explanation: 
-One possible valid good string is "011". 
-It can be constructed as follows: "" -> "0" -> "01" -> "011". 
-All binary strings from "000" to "111" are good strings in this example.
+
+Input: root = [1,2,5,3,4,null,6]
+Output: [1,null,2,null,3,null,4,null,5,null,6]
 Example 2:
 
-Input: low = 2, high = 3, zero = 1, one = 2
-Output: 5
-Explanation: The good strings are "00", "11", "000", "110", and "011".
-class Solution:
-    def countGoodStrings(self, low: int, high: int, zero: int, one: int) -> int:
-complete this        
+Input: root = []
+Output: []
+Example 3:
+
+Input: root = [0]
+Output: [0]  
 """
-for part in generate('phi3:3.8b',text, stream=True):
+for part in generate('qwen2.5-coder:7b',text, stream=True):
   print(part['response'], end='', flush=True)
